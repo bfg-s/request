@@ -1,0 +1,35 @@
+{
+    "name": "bfg/request",
+    "description": "A slight addition to the Laravel Request",
+    "type": "bfg-app",
+    "keywords": ["laravel", "extension", "request"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "bfg"
+        }
+    ],
+    "prefer-stable": true,
+    "require": {
+        "php": ">=8.0.0",
+        "bfg/installer": "*",
+        "bfg/embedded-call": "*",
+        "bfg/bless_model": "*"
+    },
+    "require-dev": {},
+    "autoload": {
+        "psr-4": {
+            "Bfg\\Request\\": "src/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Bfg\\Request\\ServiceProvider"
+            ]
+        }
+    }
+}

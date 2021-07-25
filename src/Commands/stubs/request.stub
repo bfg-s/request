@@ -1,0 +1,40 @@
+<?php
+
+namespace {{ namespace }};
+
+use Bfg\Request\FormRequest;
+
+class {{ class }} extends FormRequest
+{
+    /**
+     * Determine if the user is authorized to make this request.
+     *
+     * @return bool
+     */
+    public function authorize()
+    {
+        return false;
+    }
+
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array
+     */
+    public function rules()
+    {
+        return [
+            //
+        ];
+    }
+
+    /**
+     * Transformation callback for request validation result
+     * @param  array  $validated
+     * @return array
+     */
+    protected function transformation(array $validated): array {
+
+        return parent::transformation($validated);
+    }
+}
