@@ -6,17 +6,11 @@ use Bfg\Installer\Providers\InstalledProvider;
 use Bfg\Request\Commands\RequestMakeCommand;
 
 /**
- * Class ServiceProvider
+ * Class ServiceProvider.
  * @package Bfg\Request
  */
 class ServiceProvider extends InstalledProvider
 {
-    /**
-     * The description of extension.
-     * @var string|null
-     */
-    public ?string $description = "A slight addition to the Laravel Request";
-
     /**
      * Set as installed by default.
      * @var bool
@@ -31,8 +25,10 @@ class ServiceProvider extends InstalledProvider
     public function installed(): void
     {
         if ($this->app->runningInConsole()) {
-
             $this->app->extend('command.request.make', function () {
+                return new RequestMakeCommand(app('files'));
+            });
+            $this->app->extend(\Illuminate\Foundation\Console\RequestMakeCommand::class, function () {
                 return new RequestMakeCommand(app('files'));
             });
         }
@@ -48,4 +44,3 @@ class ServiceProvider extends InstalledProvider
         //
     }
 }
-

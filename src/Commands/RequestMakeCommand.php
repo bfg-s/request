@@ -3,7 +3,7 @@
 namespace Bfg\Request\Commands;
 
 /**
- * Class RequestMakeCommand
+ * Class RequestMakeCommand.
  * @package Bfg\Request\Commands
  */
 class RequestMakeCommand extends \Illuminate\Foundation\Console\RequestMakeCommand
